@@ -4,7 +4,7 @@ from ..functions.public import sleep
 from ..functions.logging import log
 from .App.app import toggle_mobile_data
 from selenium import webdriver
-from public import scrolling
+from .public import scrolling
 import re
 sponsered = ["Спонзорисано","Sponsored"]
 
