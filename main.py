@@ -29,9 +29,9 @@ from _dependencies.functions.chrome import fillLinks , getNewIp
 
 setting = Setting()
 setting.fill()
-address = Address(getIp())
+address = Address("192.168.1.1")
+# address = Address(getIp())
 Links = Links()
-state = -random.randint(-100000000,0)
 
 mobile_emulation = {
     "deviceName": "Pixel 2" 

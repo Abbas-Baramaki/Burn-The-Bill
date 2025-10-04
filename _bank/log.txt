@@ -599,3 +599,6 @@ Stacktrace:
 [~] 2025/Oct/04 -- 15:20:45 -- 189066 با موفقیت وارد صفحه اصلی شدیم
 [~] 2025/Oct/04 -- 15:21:06 -- 040865 مشکل ناشناخته ای رخ داده HTTPConnectionPool(host='localhost', port=12570): Max retries exceeded with url: /session/4e2c4c26291d48637efafb2176b2eabd/element/f.ED8F0FBC82B74D0BA6B24870A5DBFA26.d.CD546643A2DCF4D7A73C16AD55F0E2C9.e.208/click (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000000000DB28D0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
 [~] 2025/Oct/04 -- 15:22:07 -- 471344 مرورگر وارد گوگل شد
+[~] 2025/Oct/04 -- 18:51:14 -- 563927 برنامه استارت شد ----
+[~] 2025/Oct/04 -- 18:52:39 -- 498852 برنامه استارت شد ----
+[~] 2025/Oct/04 -- 18:52:44 -- 711606 مرورگر وارد گوگل شد
