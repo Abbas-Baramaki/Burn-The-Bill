@@ -1,0 +1,55 @@
+{
+    "MY_SITES": [
+        "emdadkhodro110.com",
+        "esfahan-emdad.com",
+        "mdotcar.com",
+        "emdaadkhodrokashan.com",
+        "mr-acharfrance.com",
+        "emdadkhdrogem.com",
+        "emdadzenderod.com",
+        "itoll.com",
+        "emdadkhodroisf.site",
+        "emdadkhodrohadaf.com"
+    ],
+    "INTERRUPT":["Your connection was interrupted",
+"A network change was detected",
+"ERR_NETWORK_CHANGED","502 Bad Gateway"
+]
+    ,
+    "ACCEPTIES": [
+        "Accept all",
+        "Alle akzeptieren",
+        "Tout accepter",
+        "Aceptar todo",
+        "Accetta tutto",
+        "Accepteren alle",
+        "Принять все",
+        "Accepter alle",
+        "Acceptera alla",
+        "Hyväksy kaikki",
+        "Aceitar tudo",
+        "Alle akzeptieren",
+        "Acceptera alla",
+        "Acceptera tout",
+        "Acceptă tot",
+        "Прийняти все",
+        "Acceptă tot",
+        "Prihvati sve",
+        "Elfogadom az összeset",
+        "Acceptează tot",
+        "Acceptă toate",
+        "Acceptă totul",
+        "Acceptă toate cookie-urile",
+        "Acceptă toate fișierele cookie",
+        "Acceptă toate modulele cookie"
+    ],
+    "QUERY": "امداد خودرو اصفهان",
+    "SPEED":3,
+    "PROXY_SERVER":false,
+    "MAX_ATTEMPT":3,
+    "ERRORS" : [
+        "Access Denied","HTTP ERROR 403","You don't have authorization to view this page."
+    ]
+
+    
+}
