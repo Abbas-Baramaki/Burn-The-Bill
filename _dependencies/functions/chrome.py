@@ -25,7 +25,7 @@ def fillLinks(driver,Link,Links,scraper):
 
 def getNewIp(driver,address):
     toggle_mobile_data()
-    sleep(20)
+    sleep(32)
 # def check(driver,scraper,address=None):
 #     try:
         
