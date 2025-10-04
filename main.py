@@ -98,7 +98,10 @@ def scraper():
     typing(_searchElement,setting.query)
     sleep(12) 
     _searchElement.send_keys(Keys.ENTER)
-    del _searchElement
+    
+    del _searchElement       
+    
+    authHandle(chrome,setting)
     
     try:
         
@@ -130,7 +133,6 @@ def scraper():
                     pass
     except:
         log("در صفحه اصلی پاپ اپی پیدا نشد ")
-    
 
 
     # for _container in _a:
