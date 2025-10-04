@@ -225,4 +225,9 @@ def scraper():
 
 if __name__ == "__main__":
     log("برنامه استارت شد ----")
-    scraper()
+    while True:
+        try:
+            scraper()
+            sleep()
+        except Exception as ex:
+            log(f"[1304] Error during start \n{ex}\n")
