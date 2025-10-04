@@ -32,7 +32,7 @@ setting.fill()
 address = Address("192.168.1.1")
 # address = Address(getIp())
 Links = Links()
-
+chrome = None
 mobile_emulation = {
     "deviceName": "Pixel 2" 
 }
@@ -63,12 +63,16 @@ else :
 
 
 def scraper():
+    
     address.check()
     setting = Setting()
     setting.fill()
-    
-    chrome = webdriver.Chrome(options=chrome_options,seleniumwire_options=wire_options)
-    chrome.get(f"https://google.com/")
+    if (chrome is not None):
+        chrome.quit()
+        chrome.get(f"https://google.com/")
+    else :
+        chrome = webdriver.Chrome(options=chrome_options,seleniumwire_options=wire_options)
+        chrome.get(f"https://google.com/")
     log("مرورگر وارد گوگل شد")
     scrolling(chrome)
     
