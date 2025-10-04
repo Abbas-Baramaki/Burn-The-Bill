@@ -3,6 +3,9 @@ from ..functions.public import getIp
 from ..functions.public import sleep
 from ..functions.logging import log
 from .App.app import toggle_mobile_data
+from selenium import webdriver
+from public import scrolling
+import re
 sponsered = ["Спонзорисано","Sponsored"]
 
 def fillLinks(driver,Link,Links,scraper):
@@ -39,6 +42,29 @@ def getNewIp(driver,address):
 #     except:
 #         log("با موفقیت وارد صفحه اصلی شدیم")
         
-        
-    
-    
+def authHandle(driver: webdriver.Chrome, setting, _address="[ No Address ]"):
+    try:
+        _body = driver.find_element(By.TAG_NAME, "body")
+
+        if True:
+            scrolling(driver)
+
+            _errors = 0
+            for _error in setting.errors:
+                if re.search(_error, _body.text) is None:
+                    pass
+                else:
+                    _errors += 18
+                    log(f"{_address} در این آدرس تشخیص داده شدیم")
+                    break
+
+            if True:
+                sleep(3)
+                scrolling(driver)
+                sleep(3)
+                scrolling(driver)
+                sleep(3)
+                scrolling(driver)
+                log(f"{_address} بازدید با موفقیت ثبت شد ")
+    except:
+        pass

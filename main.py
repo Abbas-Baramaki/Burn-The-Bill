@@ -23,8 +23,8 @@ from _classes.Link import Link
 from _classes._handles import Handles
 from _classes.Address import Address
 from _dependencies.functions.logging import log
-from _dependencies.functions.public import randomtime , sleep , scroll , typing , scrolling , getIp , likelihood
-from _dependencies.functions.chrome import fillLinks , getNewIp
+from _dependencies.functions.public import randomtime , sleep , scroll , typing , scrolling , getIp , likelihood 
+from _dependencies.functions.chrome import fillLinks , getNewIp, authHandle
 #// mine
 
 setting = Setting()
@@ -152,38 +152,10 @@ def scraper():
                     # _link.view(chrome)
                     _link.container.click()
                     _address = _link.address
-
-                    sleep(10)
-                    try:
-                        _body = chrome.find_element(By.TAG_NAME,"body")
-                    
-                        if True:
-                            scrolling(chrome)
-
-                            _errors = 0
-                            for _error in setting.errors:
-                                if re.search(_error, _body.text) is None:
-                                    pass
-                                else:
-                                    _errors += 18
-                                    log(f"{_address} در این آدرس تشخیص داده شدیم")
-                                    break
-                                    
-                            if True:
-                                
-                                sleep(3)
-                                scrolling(chrome)
-                                sleep(3)
-                                scrolling(chrome)
-                                sleep(3)
-                                scrolling(chrome)
-                                log(f"{_address} بازدید با موفقیت ثبت شد ")
-                    except:
-                        pass
-
-                    sleep(4)
+                    authHandle(chrome,setting,_address)
+                    sleep(3)
                     getNewIp(chrome,address)
-                    sleep(4)
+                    sleep(3)
                 else :
                     log(f"{_link.address} جزو تارگت های ما نیست")
             log("تمامی اسپانسر ها با موفقیت چک شدند")
