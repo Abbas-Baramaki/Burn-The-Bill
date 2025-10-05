@@ -2,11 +2,17 @@ from selenium.webdriver.common.by import By
 from ..functions.public import getIp
 from ..functions.public import sleep
 from ..functions.logging import log
-from .App.app import toggle_mobile_data
 from selenium import webdriver
 from .public import scrolling
 import re
+from .App.app import Mobile
+from _classes.setting import Setting
+
+mobile = Mobile()
 sponsered = ["Спонзорисано","Sponsored"]
+setting = Setting()
+
+
 
 def fillLinks(driver,Link,Links,scraper):
     try:
@@ -23,9 +29,9 @@ def fillLinks(driver,Link,Links,scraper):
                     Links.add_link(_link)
     return Links
 
-def getNewIp(driver,address):
-    toggle_mobile_data()
-    sleep(32)
+def getNewIp(mobile:Mobile):
+    mobile.airplane(setting)
+    sleep(setting.mobile_sleep)
 # def check(driver,scraper,address=None):
 #     try:
         

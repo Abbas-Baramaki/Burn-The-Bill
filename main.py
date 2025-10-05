@@ -25,6 +25,7 @@ from _classes.Address import Address
 from _dependencies.functions.logging import log
 from _dependencies.functions.public import randomtime , sleep , scroll , typing , scrolling , getIp , likelihood 
 from _dependencies.functions.chrome import fillLinks , getNewIp, authHandle
+from _dependencies.functions.App.app import Mobile
 #// mine
 
 setting = Setting()
@@ -32,11 +33,10 @@ setting.fill()
 address = Address("192.168.1.1")
 # address = Address(getIp())
 Links = Links()
-chrome = None
 mobile_emulation = {
     "deviceName": "Pixel 2" 
 }
-
+mobile = Mobile()
 chrome_options = uc.ChromeOptions()
 chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
 
@@ -61,18 +61,14 @@ else :
         wire_options = {
     }
 
-
 def scraper():
-    
-    address.check()
+    global chrome
+    mobile = Mobile()
+    mobile.init()
+    chrome = webdriver.Chrome(options=chrome_options,seleniumwire_options=wire_options)
     setting = Setting()
     setting.fill()
-    if (chrome is not None):
-        chrome.quit()
-        chrome.get(f"https://google.com/")
-    else :
-        chrome = webdriver.Chrome(options=chrome_options,seleniumwire_options=wire_options)
-        chrome.get(f"https://google.com/")
+    chrome.get(f"https://google.com/")
     log("مرورگر وارد گوگل شد")
     scrolling(chrome)
     
@@ -114,8 +110,8 @@ def scraper():
         if (form.get_attribute("id").strip() == "captcha-form"):
             log("مرورگر توسط گوگل ربات تشخیص داده شد")
             chrome.execute_script("alert('ربات نیاز به ایپی جدید دارد');")
-            getNewIp(chrome,address)
-            chrome.quit()
+            getNewIp(mobile)
+            chrome.close()
             scraper()
     except:
         log("با موفقیت وارد صفحه اصلی شدیم")
@@ -160,29 +156,29 @@ def scraper():
                     _address = _link.address
                     authHandle(chrome,setting,_address)
                     sleep(3)
-                    getNewIp(chrome,address)
+                    getNewIp(mobile)
                     sleep(3)
                 else :
                     log(f"{_link.address} جزو تارگت های ما نیست")
             log("تمامی اسپانسر ها با موفقیت چک شدند")
-            getNewIp(chrome,address)
-            chrome.quit()
+            getNewIp(mobile)
+            chrome.close()
             log("مرورگر برای بازکردن مجدد تبلیغ ها بسته شد")
             scraper()
             
             
         else:
             log("اسپانسر پیدا نشد مرورگر بسته شد")
-            getNewIp(chrome,address)
-            chrome.quit()
+            getNewIp(mobile)
+            chrome.close()
             scraper()
             
 
         # scraper()
     except Exception as ex:
         log(f"مشکل ناشناخته ای رخ داده {ex}")
-        getNewIp(chrome,address)
-        chrome.quit()
+        getNewIp(mobile)
+        chrome.close()
         scraper()
         
         
@@ -207,5 +203,7 @@ if __name__ == "__main__":
         try:
             scraper()
             sleep()
+            chrome.close()
         except Exception as ex:
-            log(f"[1304] Error during start \n{ex}\n")
+            log(f"[1304] خطا هنگام اجرای برنامه \n{ex}\n")
+            chrome.close()

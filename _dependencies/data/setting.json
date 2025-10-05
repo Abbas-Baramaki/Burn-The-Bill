@@ -3,8 +3,11 @@
     "SPEED":3,
     "PROXY_SERVER":false,
     "MAX_ATTEMPT":3,
-
-
+    "DEVICE_ID":"60baa866",
+    "DEVICE_PLATFORM":"Android",
+    "AIRPLANE_X":785,
+    "AIRPLANE_Y":180,
+    "MOBILE_SLEEP":10,
     "MY_SITES": [
         "emdadkhodro110.com",
         "esfahan-emdad.com",

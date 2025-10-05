@@ -1,28 +1,43 @@
 from appium import webdriver
 from appium.options.android import UiAutomator2Options
 import time
+from _classes.setting import Setting
+from _dependencies.functions.public import sleep
+from _dependencies.functions.logging import log
 
+class Mobile:
+    def __init__(self):
+        self.driver = None
+        
+    def init(self)->bool:
+        options = UiAutomator2Options()
+        options.platform_name = "Android"
+        options.device_name = "60baa866"
+        options.automation_name = "UIAutomator2"
+        self.driver =  webdriver.Remote("http://127.0.0.1:4723", options=options)
+        log("موبایل با موفقیت کانفیگ شد")
+        
+    def airplane(self,setting:Setting):
+        setting = Setting()
+        setting.fill()
+        try:
+            self.driver.open_notifications()
+            sleep(7)
+            self.driver.tap([(setting.airplane_x,setting.airplane_y)])
+            sleep(5)
+            self.driver.back()
+            self.driver.back()
+            
 
-def toggle_mobile_data():
-    caps = {
-        "platformName": "Android",
-        "deviceName": "2429c3a4",
-        "automationName": "UiAutomator2",
-        "noReset": True
-    }
-
-    options = UiAutomator2Options().load_capabilities(caps)
-    driver = webdriver.Remote("http://127.0.0.1:4723", options=options)
-
-    try:
-        driver.open_notifications()
-        driver.tap([(366, 467)])
-        time.sleep(2)
-        driver.tap([(366, 467)])
-        time.sleep(4)
-        driver.tap([(530, 530)])
-    except Exception as ex:
-        print("Error:", ex)
-    finally:
-        driver.quit()
+            self.driver.open_notifications()
+            sleep(7)
+            self.driver.tap([(setting.airplane_x,setting.airplane_y)])
+            sleep(5)
+            self.driver.back()
+            self.driver.back()
+        except Exception as ex:
+            log(f"موبایل خطا داد \n{ex}\n")
+        finally:
+            self.driver.quit()
+            del self.driver
 

@@ -51,6 +51,7 @@ def clean(value: str) -> str:
 
     value =  value.replace(r"/+","")
     value = value.rstrip(".")
+    value = value.rstrip("/")
     return value
 
 def likelihood(setting, value: str) -> bool:

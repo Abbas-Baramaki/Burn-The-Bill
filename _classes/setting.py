@@ -10,6 +10,9 @@ class Setting:
         self.ipaddress = ""
         self.max_attempts = 0
         self.errors = []
+        self.mobile_name = ""
+        self.mobile_platform = ""
+        self.mobile_sleep = 0
     
     
     def fill(self) -> None:
@@ -21,6 +24,11 @@ class Setting:
         self.proxy_server = data["PROXY_SERVER"]
         self.max_attempts = data["MAX_ATTEMPT"]
         self.errors = data["ERRORS"]
+        self.errors = data["DEVICE_ID"]
+        self.errors = data["DEVICE_PLATFORM"]
+        self.airplane_x = data["AIRPLANE_X"]
+        self.airplane_y = data["AIRPLANE_Y"]
+        self.mobile_sleep = data["MOBILE_SLEEP"]
         # self.query = urllib.parse.quote(data["QUERY"])
 
         del data
